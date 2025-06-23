@@ -2918,3 +2918,9 @@ DROP FROM "app_user" [42001-232]
 2025-06-09 22:42:39.860143+02:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DROP [*]FROM ""app_user"" WHERE id<9"; expected "TABLE, INDEX, USER, SEQUENCE, CONSTANT, TRIGGER, MATERIALIZED, VIEW, ROLE, ALIAS, SCHEMA, ALL OBJECTS, DOMAIN, TYPE, AGGREGATE, SYNONYM"; SQL statement:
 DROP FROM "app_user" WHERE id<9 [42001-232]
+2025-06-24 01:45:41.713160+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "APP_USER" not found (candidates are: "app_user"); SQL statement:
+DELETE FROM app_user WHERE ID = 9 [42103-232]
+2025-06-24 01:45:59.467319+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "APP_USER" not found (candidates are: "app_user"); SQL statement:
+DELETE FROM APP_USER WHERE ID = 9 [42103-232]

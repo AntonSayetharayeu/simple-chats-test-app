@@ -29,8 +29,9 @@ public class User {
 
     private LocalDateTime createdAt;
 
-    @Enumerated(EnumType.STRING)
-    private UserGender gender;
+    @OneToOne
+    @JoinColumn(name = "profile_id")
+    private UserProfile profile;
 
     @Enumerated(EnumType.STRING)
     private UserRole role;

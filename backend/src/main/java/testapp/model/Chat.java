@@ -1,8 +1,6 @@
 package testapp.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.PrePersist;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import testapp.model.enums.ChatType;
 
 import java.time.LocalDateTime;
@@ -11,10 +9,13 @@ import java.time.LocalDateTime;
 @Table(name = "app_chat")
 public class Chat {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private ChatType chatType;
 
     private LocalDateTime createdAt;
