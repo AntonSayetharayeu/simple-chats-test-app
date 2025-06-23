@@ -1,0 +1,107 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+/'
+class User
+class Chat
+interface List
+interface Collection
+
+List <|-- User
+Collection <|-- Chat
+
+Collection <|- List
+Chat <|- User
+User <|--- ArrayList
+
+class ArrayList {
+Object[] elementData
+size()
+}
+
+enum TimeUnit {
+DAYS
+HOURS
+MINUTES
+}
+'/
+
+'Classes
+class User {
+Long id
+String username
+String email
+String password
+LocalDateTime createdAt
+UserProfile profile
+UserRole role
+}
+
+class Chat {
+Long id
+String name
+ChatType chatType
+LocalDateTime createdAt
+}
+
+class Message {
+Long id
+String content
+LocalDateTime timestamp
+Chat chat
+User sender
+}
+
+class UserProfile {
+Long id
+String bio
+String imagePath
+String imageAltName
+UserGender gender
+}
+
+class ChatUser {
+Chat chat
+User user
+LocalDateTime enteredAt
+LocalDateTime leftAt
+ChatRole userRole
+}
+
+'Enums
+enum UserRole {
+ADMIN
+USER
+}
+
+enum ChatType {
+INDIVIDUAL
+GROUP
+}
+
+enum UserGender {
+MALE
+FEMALE
+}
+
+enum ChatRole {
+CHAT_ADMIN
+CHAT_USER
+}
+
+'Diagram
+UserRole <-- User
+UserProfile <-- User
+
+UserGender <-- UserProfile
+
+ChatType <- Chat
+
+Chat <--- Message
+User <-- Message
+
+Chat <--- ChatUser
+User <--- ChatUser
+ChatRole <- ChatUser
+
+@enduml
